@@ -40,12 +40,16 @@ void input_ATM(vector <int> &vec, int& range) // метод заполнения
 void input_bank_info(string str, vector <int> &vec) // запись колличества банкнот в файл c сохранением предыдущего состояния
 {
     ofstream BankInfo (str, ios::app);
-    for (int i = 0; i < 7; i++)
+    if (BankInfo.is_open())
     {
-        BankInfo << vec[i] << " ";
+        for (int i = 0; i < 7; i++)
+        {
+            BankInfo << vec[i] << " ";
+        }
+        BankInfo << endl;
+        BankInfo.close();
     }
-    BankInfo << endl;
-    BankInfo.close();
+    else cout << "File doesn't open" << endl;
 }
 
 int main() {

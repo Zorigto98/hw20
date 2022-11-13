@@ -7,8 +7,13 @@ using namespace std;
 void input_to_payment(string name, string last_name, string money, string date)
 {
     ofstream payment ("../payment.txt", ios::app);
-    payment << endl << name << " " << last_name << " " << money << " " << date;
-    payment.close();
+    if (payment.is_open())
+    {
+        cout << "Information save in file." << endl;
+        payment << endl << name << " " << last_name << " " << money << " " << date;
+        payment.close();
+    }
+    else cout << "File doesn't open" << endl;
 }
 
 string input_temp(const string& what_input)
@@ -28,7 +33,11 @@ string check_first_latter (string temp_str)
 bool check_money(string money)
 {
     if (stoi(money)>=0) return true;
-    else cout << "Incorrect input. Try again" << endl;
+    else
+    {
+        cout << "Incorrect input. Try again" << endl;
+        return false;
+    }
 
 }
 
@@ -93,10 +102,12 @@ int main() {
             bDate=check_date(date);
         }
 
+        input_to_payment(name, last_name, money, date);
+
         cout << "Do you want to input new person?" << endl << "Yes/No" << endl;
         cin >> ans;
     }
     while (ans=="Yes" || ans=="yes");
 
-    input_to_payment(name, last_name, money, date);
+
 }

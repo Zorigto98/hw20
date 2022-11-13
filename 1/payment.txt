@@ -17,3 +17,6 @@ John Randall 23400 2.10.2020
 Sam Anderson 6500 15.7.2020
 
 Margo Moorer 12350 24.2.2019
+
+Jone Smith 45000 22.04.2022
+Greg Smit 34900 05.09.2018
