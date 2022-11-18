@@ -4,42 +4,26 @@
 
 using namespace std;
 
-/*char get_num()
-{
-    srand(time(nullptr));
-    switch (rand()%2)
-    {
-        case 0: return '0';
-        case 1: return '1';
-    }
-}*/
-
 int main() {
     ofstream pic ("../pic.txt");
 
-    if (pic.is_open())
+    srand(time(nullptr));
+
+    cout << "Input range of picture" << endl;
+    int rol=0, col=0;
+    cout << "rol: " << endl;
+    cin >> rol;
+    cout << "col: " << endl;
+    cin >> col;
+
+    for (int i=0; i<rol; i++)
     {
-        cout << "Input range of picture" << endl;
-        int height=0, width=0;
-        cout << "height: " << endl;
-        cin >> height;
-        cout << "width: " << endl;
-        cin >> width;
-
-        for (int i=0; i < height; i++)
+        for (int j=0; j<col; j++)
         {
-            for (int j=0; j < width; j++)
-            {
-                switch (rand()%2)
-                {
-                    case 0: pic << '0' << " "; break;
-                    case 1: pic << '1' << " "; break;
-                }
-            }
-            pic << endl;
+            pic << rand()%2 << " ";
         }
-        pic.close();
+        pic << endl;
     }
-    else cout << "File doesn't open" << endl;
 
+    pic.close();
 }

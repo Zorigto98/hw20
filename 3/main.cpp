@@ -28,7 +28,6 @@ int main() {
                     river >> temp_fish_in_river;
                     if (temp_fish_in_river==fish)
                     {
-                        ofstream basket ("../basket.txt", ios::app);
                         basket << temp_fish_in_river << endl;
                         basket.close();
                         countFish++;
